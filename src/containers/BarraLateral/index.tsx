@@ -5,15 +5,16 @@ import { alterarTermo } from '../../store/reducers/filtro'
 
 import * as S from './styles'
 import * as enums from '../../utils/enums/Tarefa'
+import { Campo } from '../../styles'
 
 const BarraLateral = () => {
   const dispatch = useDispatch()
-  const { termo } = useSelector((state: RootReducer) => state.filtro)
+  const termo = useSelector((state: RootReducer) => state.filtro.termo)
 
   return (
     <S.Aside>
       <div>
-        <S.Campo
+        <Campo
           type="text"
           placeholder="Buscar"
           value={termo}
@@ -23,29 +24,29 @@ const BarraLateral = () => {
           <FiltroCard
             valor={enums.Status.PENDENTE}
             criterio="status"
-            legenda="pendentes"
+            legenda="Pendentes"
           />
           <FiltroCard
             valor={enums.Status.CONCLUIDA}
             criterio="status"
-            legenda="concluidas"
+            legenda="Concluídas"
           />
           <FiltroCard
             valor={enums.Prioridade.URGENTE}
             criterio="prioridade"
-            legenda="urgente"
+            legenda="Urgente"
           />
           <FiltroCard
             valor={enums.Prioridade.IMPORTANTE}
             criterio="prioridade"
-            legenda="importantes"
+            legenda="Importantes"
           />
           <FiltroCard
             valor={enums.Prioridade.NORMAL}
             criterio="prioridade"
-            legenda="normal"
+            legenda="Normal"
           />
-          <FiltroCard criterio="todas" legenda="todas" />
+          <FiltroCard criterio="todas" legenda="Todas" />
         </S.Filtros>
       </div>
     </S.Aside>
